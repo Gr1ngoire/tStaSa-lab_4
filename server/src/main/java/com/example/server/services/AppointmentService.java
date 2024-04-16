@@ -4,9 +4,6 @@ import com.example.server.dtos.AppointmentDTO;
 import com.example.server.entities.AppointmentEntity;
 import com.example.server.repositories.AppointmentRepository;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 
 @Service
 public class AppointmentService {
@@ -16,9 +13,11 @@ public class AppointmentService {
         this.appointmentRepository = appointmentRepository;
     }
 
-    public void create(AppointmentDTO appointmentDTO){
+    public AppointmentEntity create(AppointmentDTO appointmentDTO){
         AppointmentEntity appointmentEntity = new AppointmentEntity(appointmentRepository.getSize(),
                 appointmentDTO.getDate(), appointmentDTO.getTime(), 1L, 1L);
+        appointmentRepository.create(appointmentEntity);
+        return appointmentEntity;
     }
 
     public void delete(Long id){

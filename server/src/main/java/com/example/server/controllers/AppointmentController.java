@@ -1,6 +1,7 @@
 package com.example.server.controllers;
 
 import com.example.server.dtos.AppointmentDTO;
+import com.example.server.entities.AppointmentEntity;
 import com.example.server.services.AppointmentService;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,8 +15,8 @@ public class AppointmentController {
     }
 
     @PostMapping("")
-    public void create(@RequestBody AppointmentDTO appointmentDTO){
-        appointmentService.create(appointmentDTO);
+    public AppointmentEntity create(@RequestBody AppointmentDTO appointmentDTO){
+        return appointmentService.create(appointmentDTO);
     }
 
     @DeleteMapping("/{id}")
