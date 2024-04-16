@@ -15,13 +15,11 @@ public class AppointmentController {
 
     @PostMapping("")
     public void create(@RequestBody AppointmentDTO appointmentDTO){
-
-
+        appointmentService.create(appointmentDTO);
     }
 
     @DeleteMapping("/{id}")
-    public void create(@PathVariable Long id){
-
-
+    public void delete(@PathVariable Long id){
+        appointmentService.delete(id);
     }
 }
