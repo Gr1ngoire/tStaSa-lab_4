@@ -28,7 +28,7 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public Boolean login(@PathVariable LoginDTO loginDTO){
+    public Boolean login(@RequestBody LoginDTO loginDTO){
         return authService.login(loginDTO);
     }
 
