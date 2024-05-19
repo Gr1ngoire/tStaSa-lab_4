@@ -5,12 +5,14 @@ public class PaymentDTO {
     private String currency;
     private String senderName;
     private String receiverName;
+    private Long appointmentId;
 
-    public PaymentDTO(double amount, String currency, String senderName, String receiverName) {
+    public PaymentDTO(double amount, String currency, String senderName, String receiverName, Long appointmentId) {
         this.amount = amount;
         this.currency = currency;
         this.senderName = senderName;
         this.receiverName = receiverName;
+        this.appointmentId = appointmentId;
     }
 
     public PaymentDTO() {
@@ -46,5 +48,13 @@ public class PaymentDTO {
 
     public String getReceiverName() {
         return receiverName;
+    }
+
+    public Long getAppointmentId() {
+        return appointmentId;
+    }
+
+    public void setAppointmentId(Long appointmentId) {
+        this.appointmentId = appointmentId;
     }
 }

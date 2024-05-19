@@ -5,6 +5,8 @@ import com.example.server.entities.DoctorEntity;
 import com.example.server.services.DoctorService;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("api/doctors")
 public class DoctorController {
@@ -12,6 +14,11 @@ public class DoctorController {
 
     public DoctorController(DoctorService doctorService) {
         this.doctorService = doctorService;
+    }
+
+    @GetMapping("")
+    public List<DoctorDTO> getAllDoctors(){
+        return doctorService.getAllDoctors();
     }
 
     @PostMapping("")

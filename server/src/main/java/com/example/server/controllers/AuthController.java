@@ -28,12 +28,12 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public Boolean login(@RequestBody LoginDTO loginDTO){
+    public Long login(@RequestBody LoginDTO loginDTO){
         return authService.login(loginDTO);
     }
 
     @PostMapping("/check")
-    public Boolean check(){
+    public Long check(){
         return authService.checkAuth();
     }
 }

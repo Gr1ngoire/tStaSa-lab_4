@@ -21,16 +21,16 @@ public class AuthService {
         return userEntity;
     }
 
-    public Boolean login(LoginDTO loginDTO){
+    public Long login(LoginDTO loginDTO){
         if(userRepository.findByEmail(loginDTO.getEmail())
                 .getPassword().equals(loginDTO.getPassword())){
-            return true;
+            return userRepository.findByEmail(loginDTO.getEmail()).getId();
         }
-        return false;
+        return 0L;
     }
 
-    public Boolean checkAuth(){
-        return true;
+    public Long checkAuth(){
+        return 0L;
     }
 
 }

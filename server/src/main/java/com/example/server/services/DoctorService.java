@@ -8,12 +8,22 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class DoctorService {
     private final DoctorRepository doctorRepository;
 
     public DoctorService(DoctorRepository doctorRepository) {
         this.doctorRepository = doctorRepository;
+    }
+
+    public List<DoctorDTO> getAllDoctors(){
+        return doctorRepository.getAll()
+                .stream()
+                .map(this::convertToDTO)
+                .collect(Collectors.toList());
     }
 
     public DoctorEntity create(DoctorDTO doctorDTO){
@@ -25,5 +35,12 @@ public class DoctorService {
 
     public void delete(Long id){
         doctorRepository.delete(id);
+    }
+
+    private DoctorDTO convertToDTO(DoctorEntity doctorEntity) {
+        return new DoctorDTO(
+                doctorEntity.getName(),
+                doctorEntity.getEmail(),
+                doctorEntity.getPassword());
     }
 }
