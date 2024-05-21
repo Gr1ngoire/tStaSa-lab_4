@@ -21,12 +21,12 @@ public class AuthService {
         return userEntity;
     }
 
-    public Long login(LoginDTO loginDTO){
+    public UserEntity login(LoginDTO loginDTO){
         if(userRepository.findByEmail(loginDTO.getEmail())
                 .getPassword().equals(loginDTO.getPassword())){
-            return userRepository.findByEmail(loginDTO.getEmail()).getId();
+            return userRepository.findByEmail(loginDTO.getEmail());
         }
-        return 0L;
+        return null;
     }
 
     public Long checkAuth(){

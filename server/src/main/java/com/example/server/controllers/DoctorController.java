@@ -21,6 +21,11 @@ public class DoctorController {
         return doctorService.getAllDoctors();
     }
 
+    @GetMapping("/{id}")
+    public DoctorDTO getDoctorById(@PathVariable Long id){
+        return doctorService.getDoctorById(id);
+    }
+
     @PostMapping("")
     public DoctorEntity create(@RequestBody DoctorDTO doctorDTO){
         return doctorService.create(doctorDTO);

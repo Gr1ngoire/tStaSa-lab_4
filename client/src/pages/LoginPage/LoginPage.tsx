@@ -1,10 +1,11 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { Button } from "../../components/Button/Button";
 import { Input } from "../../components/Input/Input";
 
 import styles from "./styles.module.css";
 
 const LoginPage = () => {
+  const navigate = useNavigate();
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -22,14 +23,19 @@ const LoginPage = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
+        localStorage.setItem("user", JSON.stringify(data));
+        navigate("/home");
       })
       .catch((err) => console.log(err));
-  }
+  };
 
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>Login</h1>
-      <form className={styles.form} onSubmit={handleSubmit}>
+      <form
+        className={styles.form}
+        onSubmit={handleSubmit}
+      >
         <Input
           placeholder="Email"
           label="Email"

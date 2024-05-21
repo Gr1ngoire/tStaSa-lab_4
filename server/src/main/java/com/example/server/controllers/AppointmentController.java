@@ -26,13 +26,18 @@ public class AppointmentController {
         return appointmentService.getAppointmentById(id);
     }
 
+    @GetMapping("/client/{id}")
+    public List<AppointmentDTO> getAppointmentsByClientId(@PathVariable Long id) {
+        return appointmentService.getAppointmentsByClientId(id);
+    }
+
     @PostMapping("")
-    public AppointmentEntity create(@RequestBody AppointmentDTO appointmentDTO){
+    public AppointmentEntity create(@RequestBody AppointmentDTO appointmentDTO) {
         return appointmentService.create(appointmentDTO);
     }
 
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable Long id){
+    public void delete(@PathVariable Long id) {
         appointmentService.delete(id);
     }
 }

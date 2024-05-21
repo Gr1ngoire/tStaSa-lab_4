@@ -28,7 +28,7 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public Long login(@RequestBody LoginDTO loginDTO){
+    public UserEntity login(@RequestBody LoginDTO loginDTO){
         return authService.login(loginDTO);
     }
 

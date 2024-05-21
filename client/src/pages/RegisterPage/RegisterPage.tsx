@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { Button } from "../../components/Button/Button";
 import { Input } from "../../components/Input/Input";
 import styles from "../LoginPage/styles.module.css";
@@ -11,6 +11,8 @@ type User = {
 };
 
 const RegisterPage = () => {
+  const navigate = useNavigate();
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
@@ -27,8 +29,9 @@ const RegisterPage = () => {
     })
       .then((res) => res.json() as Promise<User>)
       .then((data: User) => {
-        console.log(data)
+        console.log(data);
         localStorage.setItem("user", JSON.stringify(data));
+        navigate("/home");
       })
       .catch((err) => console.log(err));
   };

@@ -19,6 +19,13 @@ public class DoctorRepository {
         doctorEntities.add(entity);
     }
 
+    public DoctorEntity getById(Long id){
+        return doctorEntities.stream()
+                .filter(doctorEntity -> doctorEntity.getId().equals(id))
+                .findFirst()
+                .orElse(null);
+    }
+
     public List<DoctorEntity> getAll(){
         return doctorEntities;
     }

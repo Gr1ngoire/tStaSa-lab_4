@@ -6,7 +6,7 @@ public class UserEntity {
     private String password;
     private String name;
 
-    public UserEntity(Long id, String email, String password, String name) {
+    public UserEntity(Long id, String email, String name, String password) {
         this.id = id;
         this.email = email;
         this.password = password;

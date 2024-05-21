@@ -1,0 +1,42 @@
+.container {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  width: 100%;
+  flex: 1;
+}
+
+.nav {
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.nav ul {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li a {
+  display: flex;
+  text-decoration: none;
+  color: black;
+  transition: color 0.3s;
+  padding: 16px;
+  align-items: center;
+  width: 100%;
+}
+
+li {
+  transition: background-color 0.3s;
+  display: flex;
+}
+
+li:hover {
+  background-color: #4caf50;
+}
+
+li:hover a {
+  color: white;
+}

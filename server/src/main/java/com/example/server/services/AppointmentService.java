@@ -28,23 +28,29 @@ public class AppointmentService {
         return entity != null ? convertToDTO(entity) : null;
     }
 
-    public AppointmentEntity create(AppointmentDTO appointmentDTO){
+    public List<AppointmentDTO> getAppointmentsByClientId(Long id) {
+        return appointmentRepository.getByClientId(id)
+                .stream()
+                .map(this::convertToDTO)
+                .collect(Collectors.toList());
+    }
+
+    public AppointmentEntity create(AppointmentDTO appointmentDTO) {
         AppointmentEntity appointmentEntity = new AppointmentEntity(appointmentRepository.getSize(),
                 appointmentDTO.getDate(), appointmentDTO.getTime(), 1L, 1L);
         appointmentRepository.create(appointmentEntity);
         return appointmentEntity;
     }
 
-
-
-    public void delete(Long id){
+    public void delete(Long id) {
         appointmentRepository.delete(id);
     }
 
     private AppointmentDTO convertToDTO(AppointmentEntity appointmentEntity) {
         return new AppointmentDTO(
+                appointmentEntity.getId(),
                 appointmentEntity.getDate(),
-                appointmentEntity.getTime()
-        );
+                appointmentEntity.getTime(),
+                appointmentEntity.getDoctor_id());
     }
 }

@@ -33,6 +33,11 @@ public class DoctorService {
         return doctorEntity;
     }
 
+    public DoctorDTO getDoctorById(Long id){
+        DoctorEntity entity = doctorRepository.getById(id);
+        return entity != null ? convertToDTO(entity) : null;
+    }
+
     public void delete(Long id){
         doctorRepository.delete(id);
     }

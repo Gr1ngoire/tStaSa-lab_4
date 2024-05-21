@@ -1,0 +1,80 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 0 20px;
+}
+
+.appointments {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.day {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tableHeader {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+}
+
+.tableHeaderRow {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+
+
+.tableRow {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.tableData, .tableCell {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+}
+
+.week {
+  display: flex;
+  gap: 10px;
+}
+
+.appointmentTaken {
+  color: #a0a0a0;
+}
+
+.appointmentFree {
+    color: #4CAF50;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 4px;
+    font-weight: 600;
+    transition: background-color 0.3s;
+    width: 100%;
+}
+
+.appointmentFree:hover {
+    background-color: #45a049;
+    color: white;
+}
